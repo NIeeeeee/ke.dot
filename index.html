@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <title>Document</title>
+  <style media="screen">
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .pic-box{
+      position: relative;
+      width: 10rem;
+      background-color: red;
+      height: 3.9333rem;
+      background: url("http://p.qpic.cn/qqconadmin/0/6c206fe996484128ba2907233d2aacd5/0") no-repeat;
+      background-size: cover;
+
+    }
+
+    .dots-box{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0.266667rem;
+      width: 1.6rem;
+      height: 0.186667rem;
+      font-size: 0;
+    }
+
+    .dots-box li{
+      display: inline-block;
+      background:#fff;
+      border-radius: 50%;
+      margin-right: 0.1333rem;
+      width: 0.18667rem;
+      height: 100%;
+      opacity: .5;
+      transition: opacity .3s;
+    }
+
+    .dots-box li:last-child{
+      margin-right: 0;
+    }
+
+    .dots-box li.on{
+      opacity: 1;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="pic-box">
+    <ul class="dots-box">
+      <li class="on"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function(){
+      var oLis = document.querySelectorAll(".dots-box li");
+      var oCurrentLi = document.querySelector('.dots-box .on')
+      console.log(oCurrentLi);
+      var i = 0;
+      setInterval(function(){
+        // oCurrentLi.classList.remove('on');
+        // // document.querySelector(".dots-box li:last-child").classList.add('on');
+        // oLis[oLis.length-1].classList.add('on');
+        // console.log(i);
+        document.querySelector('.dots-box .on').classList.remove('on');
+        oLis[i].classList.add('on');
+        i++;
+        if (i >= oLis.length){
+          i =0;
+        }
+      },200);
+    }
+
+// 第二种方法
+//     window.addEventListener('load',function(){
+//      var li = document.getElementsByTagName('li');
+//      var i = 0;
+//      setInterval(function(){
+//        if(i == 0){
+//          li[4].classList.remove('on');
+//        }
+//       li[i].classList.add('on');
+//       if(li[i-1]){
+//         li[i-1].classList.remove('on');
+//       }
+//       i++;
+//       if(i == 5){
+//         i = 0;
+//       }
+//     },1000);
+//    },false);
+
+  </script>
+</body>
+</html>
